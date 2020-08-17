@@ -1,23 +1,25 @@
 #include <iostream>
-#include "Resources/Debugger.h"
+#include "Resources/Debugger.h"/*includes the glew header file*/
 #include <GLFW/glfw3.h>
-#include "Resources/Rectangle.h"
+#include <vector>
+#include "Resources/UserInstances.h"/*includes the rectangle header*/
+/*Okay so I need to find a way to have the user input to reference a rectangle.
+I guess what I kinda need to do is have 1 single rect object bound to the user
+object at a time. Or at least something like it. I think thats possible. We
+could have the pointer be to any rect object and then we can change all the values
+via the pointer. But that would mean that the user object doesn't create the rectangle objects
+it would only manipulate them. We could have something else that generates rectangles for us,
+buy honestly we probably just need a vector for all of these rectangles somewhere*/
 
-/*After programming this for awhile I came to realize that this is the perfect example of how
-to not structure your code. I didn't think about how the user object would interact with the rectangle
-object which means that this code needed massive restructuring. So I'll make a copy to rebuild*/
+/*static std::vector<rect*> rectangleList;/*Actually this doesn't create rectangles either... It just puts them in a dynamic array.
+                                       Does this mean that I have to use heap allocation from a function. I can't think of
+                                       another way to create a variable number of objects in the main function...
+                                       But I could use this as a pointer to all the rectangles and use it to keep track of what
+                                       objects I have deleted on the heap. Nah I'll just allocate them on the heap and have a function
+                                       that returns their address when it's created so I can store it in a variable.*/
 
-/*Trying to make an example with 2 translucent materials.
-Let's make 2 objects with their own Render pipelines that can each take render values.*/
-
-/*You have initialized the all of your class and have created ptr methods for rect properties.
-You have initialized the userInput ptr to any char*, however this is designed to be something
-that points to the properties of an instance of rect so in order to make this happen you will
-have to do some creative casting to make it work. Although if we are going to do casting then maybe
-we just want to cast a void pointer to whatever value is returned from the pointer methods of rect class
-
-I am trying to think if I want to use just 1 vbo and just leave that bound. Regardless */
-
+/*I need to finish the user method that creates new rectangles. But to do this I also need to create a constructor
+for rectangles that generates a rectangle based on these buffer values.*/
 int main()
 {
     GLFWwindow* window;
@@ -53,13 +55,6 @@ int main()
     
     rect testRectangle;
     
-    /*Note that index buffer can be bound before the vertexAtrribPointer layout but not before the vertex Array Object is bound
-    The index buffer can even be bound before the vertex buffer but not the vertex array object.*/
-    /*Just realized that if I wanted all of my recrtangles to be drawn the same way
-    then it would be more efficient optimization wize to make this buffer in the main function
-    and just make all vertex array objects use the same index buffer... So I am taking this out of my rect class
-    because it is pretty useless to initialize the same data the same way but have a copy of that same data stored
-    throughout multiple instances of a class.*/
     unsigned int indexID;
     glGenBuffers(1, &indexID);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexID);

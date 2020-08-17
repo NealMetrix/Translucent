@@ -29,7 +29,11 @@ rect::rect()
 	/*I will also want to create a shader object in here to instantiate the shader as a property
 	of this class. This way changing the shader would be like changing the color of a specific rectangle*/
 }
-
+rect::~rect()
+{
+	glDeleteVertexArrays(1, &vArrayObject);
+	glDeleteBuffers(1, &m_VertexID);
+}
 /*Pointer Methods*/
 vertex* rect::rectangleBuffPtr() { return &rectangleBuff[0]; }
 float* rect::colorPtr() { return &color[0]; }

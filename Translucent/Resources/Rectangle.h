@@ -22,6 +22,7 @@ class rect
 public:
 	/*Constructors/Destructors*/
 	rect();
+	~rect();
 
 	/*Pointer Methods*/
 	vertex* rectangleBuffPtr();
