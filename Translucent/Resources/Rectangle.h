@@ -22,6 +22,7 @@ class rect
 public:
 	/*Constructors/Destructors*/
 	rect();
+	rect(vertex* vBuff);
 	~rect();
 
 	/*Pointer Methods*/
@@ -29,4 +30,5 @@ public:
 	float* colorPtr();
 
 	void bindRect()const;
+	void displayData()const;
 };

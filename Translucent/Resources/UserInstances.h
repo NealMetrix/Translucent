@@ -30,4 +30,6 @@ public:
 private:
 	void color();
 	void bindRectangle();
+	void display()const;
+	void help()const;
 };

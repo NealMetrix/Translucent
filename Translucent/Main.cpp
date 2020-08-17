@@ -11,7 +11,7 @@ via the pointer. But that would mean that the user object doesn't create the rec
 it would only manipulate them. We could have something else that generates rectangles for us,
 buy honestly we probably just need a vector for all of these rectangles somewhere*/
 
-/*static std::vector<rect*> rectangleList;/*Actually this doesn't create rectangles either... It just puts them in a dynamic array.
+static std::vector<rect*> rectangleList;/*Actually this doesn't create rectangles either... It just puts them in a dynamic array.
                                        Does this mean that I have to use heap allocation from a function. I can't think of
                                        another way to create a variable number of objects in the main function...
                                        But I could use this as a pointer to all the rectangles and use it to keep track of what
@@ -35,7 +35,6 @@ int main()
         glfwTerminate();
         return -1;
     }
-    /*Forward Alwasys to the stars We Got it */
     /* Make the window's context current We foiund we gonna */
     glfwMakeContextCurrent(window);
 
@@ -52,9 +51,23 @@ int main()
         0,1,3,
         3,2,1
     };
-    
-    rect testRectangle;
-    
+    /*This stops the window when it's midway open. Another structure error. I don't want to just have a white window just hanging there
+    while the user enters information. I would like the window to be created after the user has entered there information.
+    However to do that it means that I need to be able to create different buffers before the window creation happens.
+    But the problem is that as I have written the code there would be a bunch of OpenGL errors because all gl functions
+    need to be called in an valid window context after glewInit() has been called. So the gl functions in the rect constructors
+    will have to be moved into a class of their own that draws on the rectangle buffers after the user has generated and manipulated
+    all of the rectangles they so desire.*/
+    user mainUser;
+    int tester = invalidString;
+    while (tester != quitC && tester != generateC)
+    {
+        std::cout << "Type a command to create or manipulate a rectangle\nType 'help' for the list of commands" << std::endl;
+        std::string mainInput;
+        std::cin >> mainInput;
+        tester = mainUser.input(mainInput);
+    }
+
     unsigned int indexID;
     glGenBuffers(1, &indexID);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexID);
