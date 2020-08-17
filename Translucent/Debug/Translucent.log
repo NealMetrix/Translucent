@@ -1,0 +1,9 @@
+﻿  Rectangle.cpp
+  UserInstances.cpp
+C:\Users\Black Nova\Documents\Programs\Teaching Programs\Translucent\Translucent\Resources\UserInstances.h(21,36): warning C4200: nonstandard extension used: zero-sized array in struct/union
+C:\Users\Black Nova\Documents\Programs\Teaching Programs\Translucent\Translucent\Resources\UserInstances.h(21,36): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Black Nova\Documents\Programs\Teaching Programs\Translucent\Debug\vc120.pdb'; linking object as if no debug info
+  Translucent.vcxproj -> C:\Users\Black Nova\Documents\Programs\Teaching Programs\Translucent\Debug\Translucent.exe
