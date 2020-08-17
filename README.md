@@ -1,6 +1,5 @@
 # Translucent
 
-This is an attempt at trying to do translucency with OpenGL. This is actually a branch that I didn't complete because I felt
-it was a good example of how to not structure your code because I put myself in the situation where I had to completely
-restructure 1 or both of my classes. To find out more details look at the code itself. I wrote comments that mapped out
-my thought process. I will put the correct code in a different branch.
+This is an attempt at trying to do translucency with OpenGL.
+The completed version trying to get some experience with translucency/colors with different opacities.
+Basically this is about trying to get a good intuition about the glBlend functions.
