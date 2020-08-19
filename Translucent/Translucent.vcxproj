@@ -145,13 +145,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Resources\Rectangle.cpp" />
-    <ClCompile Include="Resources\UserInstances.cpp" />
+    <ClCompile Include="Class_Code\color.cpp" />
+    <ClCompile Include="Class_Code\Rectangle.cpp" />
+    <ClCompile Include="Class_Code\renderObjects.cpp" />
+    <ClCompile Include="Class_Code\UserInstances.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resources\Debugger.h" />
-    <ClInclude Include="Resources\Rectangle.h" />
-    <ClInclude Include="Resources\UserInstances.h" />
+    <ClInclude Include="Class_Code\color.h" />
+    <ClInclude Include="Class_Code\Debugger.h" />
+    <ClInclude Include="Class_Code\Rectangle.h" />
+    <ClInclude Include="Class_Code\renderObjects.h" />
+    <ClInclude Include="Class_Code\UserInstances.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Shaders\userRead.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

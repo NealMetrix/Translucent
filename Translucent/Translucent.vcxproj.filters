@@ -18,22 +18,37 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\Rectangle.cpp">
+    <ClCompile Include="Class_Code\color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Resources\UserInstances.cpp">
+    <ClCompile Include="Class_Code\Rectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class_Code\renderObjects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Class_Code\UserInstances.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resources\Rectangle.h">
+    <ClInclude Include="Class_Code\color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\UserInstances.h">
+    <ClInclude Include="Class_Code\Debugger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resources\Debugger.h">
+    <ClInclude Include="Class_Code\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Class_Code\renderObjects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Class_Code\UserInstances.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Shaders\userRead.shader" />
   </ItemGroup>
 </Project>
