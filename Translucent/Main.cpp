@@ -67,40 +67,16 @@ int main()
     /*There will be nothing displayed until I create a vertex buffer class that will use the rectangle class as
     a buffer.*/
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendEquation(GL_FUNC_ADD);/*This is GL_FUNC_ADD by default but I wanted to make it explicit for the first time I used it*/
+
     unsigned int indexID;
     GLError(glGenBuffers(1, &indexID));
     GLError(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexID));
     GLError(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW));
 
-    //vertex nullVert[] =
-    //{
-    //    {0.5f,0.5f},
-    //    {0.5f,0.0f},
-    //    {0.0f,0.0f},
-    //    {0.0f,0.5f}
-    //};
-    //rect dummyRectangle("dummy", nullVert);
-
-    /*renderObjects testRender(&dummyRectangle);/*The layout has to be specified before the shader is used.
-                                                                   But then what buffer am I reading???Let's make a dummy rectangle
-                                                                   to start the drawing. This didn't work. Why doesn't the dummy rectangle work?*/
-    //std::cout << &dummyRectangle << std::endl;
-
-    /*Okay so I still am not drawing anything on the screen but... I got rid of the asserts.
-    It was actually how the parser was delivering our code. I didn't realize that it didn't include any enter
-    keys that you type in the document... And sine there wasn't a space or an enter between #version 330 core and layout it errored out.
-    I could have probably solved it with spaces but std::endl for every line it parsed in was probably better than placing spaces in
-    by hand in the document for erroring out.
-    But I told it to use the uniform from the user and they aren't giving it one!!! NO it should be set up to
-    where it gives a default white square by default... But wait we haven't set the uniform so it can't use it yet!!*/
-    //userShader.setUniform();
-    /*GOT IT!!!!!!!!!!! Now I will comment out the dummy and see if it still works... And NO ASSERTS!!!!*/
-
-    renderObjects renderRectangleList(mainUser.rectangleRefrenceList.at(0));/*This recreates the buffer every time. Not good OpenGL code but
-                                                                            it would require me to do some restructuring again which I might do later
-                                                                            or now if this doesn't work.*/
-    /*If the user doesn't define a rectangle this will probably trigger an assert but I will try and deal with that later*/
-    //renderObjects renderRectangleList(mainUser.rectangleRefrenceList.at(0));
+    renderObjects renderRectangleList(mainUser.rectangleRefrenceList.at(0));
     colors userShader("Graphics/Shaders/userRead.shader", mainUser.rectangleRefrenceList.at(0));
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
